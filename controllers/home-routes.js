@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
         res.status(200).
             render('home', {
                 blogPosts,
-                // loggedIn: req.session.loggedIn,
+                loggedIn: req.session.loggedIn,
             });
     } catch (err) {
         console.log(err);
@@ -40,41 +40,13 @@ router.get('/post/:id', async (req, res) => {
                     all: true,
                     nested:true
                 } 
-                // {
-                //     model: [
-                //         {Users,
-                //         attributes: [
-                //             'first_name',
-                //             'last_name',
-                //         ],
-                //     },
-                //     {model: Comment,
-                //                 attributes: 'comment' ,}
-                //     ]
-                // },
-                // {
-                //     // model: Comment,
-                //     //     attributes: 'comment' ,
-                //     //     // include: [{
-                //         //         model:Users,
-                //         //         attributes: [
-                //         //             'first_name',
-                //         //             'last_name',
-                //         //         ],
-                //         //     }]
-                // },
-            
-        });
-            
-                
-            
+        });    
         console.log(dbBlogData)
         const blogPosts = dbBlogData.get({ plain: true });
-
         res.status(200).
         render('full_blog', {
                 blogPosts,
-                // loggedIn: req.session.loggedIn,
+                loggedIn: req.session.loggedIn,
             });
     } catch (err) {
         console.log(err);
@@ -82,8 +54,13 @@ router.get('/post/:id', async (req, res) => {
     }
 });
 
-module.exports = router;
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+  
+    res.render('login');
+  });
 
-                // all:true,
-                // nested:true,
-                // exclude: 'password'
+module.exports = router;

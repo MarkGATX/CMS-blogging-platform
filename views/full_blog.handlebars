@@ -1,12 +1,14 @@
-<div class="card">
-            <h5 class="card-header">{{blogPosts.title}}</h5>
-            <div class="card-body">
-              <p class="card-text">{{blogPosts.post}}</p>           
-            </div>
-            <div class="card-footer text-muted text-end">
-                -- by {{blogPosts.user.first_name}} {{blogPosts.user.last_name}}
-              </div>
-          </div>
- {{#each blogPosts.comment as |comment|}}
-{{> comments}}
-{{/each}}    
+<div class="card mb-5">
+  <h5 class="card-header">{{blogPosts.title}}</h5>
+  <div class="card-body">
+    <p class="card-text ms-5">{{blogPosts.post}}</p>
+  </div>
+  <div class="card-footer text-muted text-end">
+    -- by {{blogPosts.user.first_name}} {{blogPosts.user.last_name}}
+  </div>
+</div>
+<div class="d-flex justify-content-end flex-wrap">
+  {{#each blogPosts.comments as |comment|}}
+  {{> comments}}
+  {{/each}}
+</div>
