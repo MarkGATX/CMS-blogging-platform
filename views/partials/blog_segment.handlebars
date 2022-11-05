@@ -1,9 +1,11 @@
-<div class="card">
-            <h5 class="card-header">Blog Title</h5>
-            <div class="card-body">
-              <p class="card-text">Blog Teaser text...</p>           
-            </div>
-            <div class="card-footer text-muted text-end">
-                Blog Author
-              </div>
-          </div>
+<a href='/post/{{id}}'>
+  <div class="card mb-5">
+    <h5 class="card-header">{{title}}</h5>
+    <div class="card-body">
+      <p class="card-text ms-5">{{post}}</p>
+    </div>
+    <div class="card-footer text-muted text-end">
+      -- by {{user.first_name}} {{user.last_name}}
+    </div>
+  </div>
+</a>

@@ -50,6 +50,10 @@ Users.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'users',
+    defaultScope: {
+      attributes: { exclude: ['password'] },
+    }
+
   }
 );
 

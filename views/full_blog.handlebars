@@ -1,13 +1,12 @@
 <div class="card">
-            <h5 class="card-header">Blog Title</h5>
+            <h5 class="card-header">{{blogPosts.title}}</h5>
             <div class="card-body">
-              <p class="card-text">Blog Teaser text...</p>           
+              <p class="card-text">{{blogPosts.post}}</p>           
             </div>
             <div class="card-footer text-muted text-end">
-                Blog Author
+                -- by {{blogPosts.user.first_name}} {{blogPosts.user.last_name}}
               </div>
           </div>
- {{#each comment as |comment|}}
+ {{#each blogPosts.comment as |comment|}}
 {{> comments}}
-{{/each}}   
-{{!-- <form> for comments </form> --}}  `
+{{/each}}    
