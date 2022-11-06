@@ -1,14 +1,19 @@
-<div class="card mb-5">
-  <h5 class="card-header">{{blogPosts.title}}</h5>
+<div class="card mb-5" data-postId="{{postId}}">
+  <h5 class="card-header" ">{{blogPosts.title}}</h5>
   <div class="card-body">
     <p class="card-text ms-5">{{blogPosts.post}}</p>
   </div>
-  <div class="card-footer text-muted text-end">
-    -- by {{blogPosts.user.first_name}} {{blogPosts.user.last_name}}
+  <div class="card-footer text-muted d-flex justify-content-between">
+    <div class="commentButton">
+  <button type="submit" id="submitComment" data-userId="{{userId}}">Add a comment</button>
+</div>
+    <span>-- by {{blogPosts.user.first_name}} {{blogPosts.user.last_name}}</span>
   </div>
 </div>
+
 <div class="d-flex justify-content-end flex-wrap">
   {{#each blogPosts.comments as |comment|}}
   {{> comments}}
   {{/each}}
 </div>
+<script src="/js/comment.js"></script>

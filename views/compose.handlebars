@@ -1,0 +1,13 @@
+<h2>Edit Post</h2>
+<div id="editForm" data-idnumber="{{blogPosts.id}}" class="form card mb-5">
+    <div class="card-header"><input type="text" id="editTitle" name="title" value={{blogPosts.title}}></input></div>
+    <div class="card-body">
+      <textarea class="card-text ms-5 col-11"  rows="5" id="editPost" name="post">{{blogPosts.post}}</textarea>
+    </div>
+    <div class="card-footer text-muted text-end">
+      -- by {{blogPosts.user.first_name}} {{blogPosts.user.last_name}}
+      <button type="submit" form="editform" id="submitEdit">Submit Edit</button>
+    </div>
+  </div>
+  <script src="/js/edit.js"></script>
+ 

@@ -1,50 +1,51 @@
 const router = require('express').Router();
+const { title } = require('process');
 const { Users, Post } = require('../../models');
 const auth = require('../../utils/auth')
 
-router.post('/', async (req, res) => {})
-    
-    // try {
-    //     const dbBlogData = await Post.findAll({
-    //         include: {
-    //             model: Users,
-    //             attributes: [
-    //                 'first_name',
-    //                 'last_name',
-    //             ],
-    //         },
-    //     });
-//         const dbUserData = await Users.findOne({
-//             where: {
-//                 email: req.body.email,
-//             },
+//update post
+router.put('/compose/', async (req, res) => {
+    console.log(req.body)
+    try {
+        await Post.update({ 
+            title: req.body.title, 
+            post:req.body.post,
+        }, 
+            {
+            where: {
+              id: req.body.id
+            }
+          });
+        
+            res.status(200).json(req.body);
+                
 //         });
-//         console.log(dbUserData)
-//         if (!dbUserData) {
-//             res.status(400)
-//                 .json({ message: 'Incorrect email or password. Please try again!' });
-//             return;
-//         }
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
-//         const validPassword = await dbUserData.checkPassword(req.body.password);
-
-//         if (!validPassword) {
-//             res
-//                 .status(400)
-//                 .json({ message: 'Incorrect email or password. Please try again!' });
-//             return;
-//         }
-
-//         req.session.save(() => {
-//             req.session.loggedIn = true;
-
-//             res.status(200)
-//                 .json({ user: dbUserData, message: 'You are now logged in!' });
+//new post
+router.post('/new/', async (req, res) => {
+    console.log(req.body)
+    try {
+        await Post.create({ 
+            title: req.body.title,
+            post: req.body.post, 
+            author:req.body.id,
+            
+        }, 
+            );
+        
+            res.status(200).json(req.body);
+                
 //         });
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err);
-//     }
-// });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 
 module.exports = router;

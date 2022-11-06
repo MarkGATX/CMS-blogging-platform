@@ -32,13 +32,15 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', auth.withAuth, async (req, res) => {
+    
+
     try {
         const dbBlogData = await Post.findAll({
             include: {
                 model: Users,
                 where: {
-                    id: 1,
+                    id: req.session.userId,
                 }
             }
         });
@@ -52,7 +54,7 @@ router.get('/dashboard', async (req, res) => {
             render('dashboard', {
                 blogPosts,
                 loggedIn: req.session.loggedIn,
-                userName: req.session.userId
+                userId: req.session.userId
             });
     } catch (err) {
         console.log(err);
@@ -60,7 +62,7 @@ router.get('/dashboard', async (req, res) => {
     }
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', auth.withAuth, async (req, res) => {
     try {
         const dbBlogData = await Post.findByPk(req.params.id,
             {
@@ -92,11 +94,44 @@ router.get('/post/:id', async (req, res) => {
                 // } 
             });
         console.log(dbBlogData)
+        console.log('sessionid = ' + req.session.userId)
         const blogPosts = dbBlogData.get({ plain: true });
         res.status(200).
             render('full_blog', {
                 blogPosts,
                 loggedIn: req.session.loggedIn,
+                userId: req.session.userId,
+                postId: req.params.id
+            });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+//Edit Post
+router.get('/compose/:id', auth.withAuth, async (req, res) => {
+    try {
+        const dbBlogData = await Post.findByPk(req.params.id, {
+            include: {
+                model: Users,
+                attributes: [
+                    'first_name',
+                    'last_name',
+                ],
+            }
+        }
+        );
+            
+                console.log(dbBlogData)
+        const blogPosts = dbBlogData.get({ plain: true });
+        console.log(blogPosts)
+        res.status(200).
+            render('compose', {
+                blogPosts,
+                loggedIn: req.session.loggedIn,
+                title: blogPosts.title,
+
             });
     } catch (err) {
         console.log(err);
