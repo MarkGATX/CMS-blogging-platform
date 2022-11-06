@@ -24,6 +24,35 @@ router.get('/', async (req, res) => {
             render('home', {
                 blogPosts,
                 loggedIn: req.session.loggedIn,
+                userName: req.session.userId
+            });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.get('/dashboard', async (req, res) => {
+    try {
+        const dbBlogData = await Post.findAll({
+            include: {
+                model: Users,
+                where: {
+                    id: 1,
+                }
+            }
+        });
+        console.log(dbBlogData)
+        const blogPosts = dbBlogData.map((blogs) =>
+            blogs.get({ plain: true })
+        );
+        console.log(blogPosts)
+
+        res.status(200).
+            render('dashboard', {
+                blogPosts,
+                loggedIn: req.session.loggedIn,
+                userName: req.session.userId
             });
     } catch (err) {
         console.log(err);
@@ -33,18 +62,39 @@ router.get('/', async (req, res) => {
 
 router.get('/post/:id', async (req, res) => {
     try {
-        const dbBlogData = await Post.findByPk(req.params.id, 
+        const dbBlogData = await Post.findByPk(req.params.id,
             {
-            include: 
-                {
-                    all: true,
-                    nested:true
-                } 
-        });    
+                include: [
+                    {
+                        model: Users,
+                        attributes: [
+                            'first_name',
+                            'last_name'
+                        ]
+                    },
+                    {
+                        model: Comment,
+                        include: [
+                            {
+                                model: Users,
+                                attributes: [
+                                    'first_name',
+                                    'last_name'
+                                ]
+                            }
+                        ]
+                    }
+                ]
+
+                // {
+                //     all: true,
+                //     nested:true
+                // } 
+            });
         console.log(dbBlogData)
         const blogPosts = dbBlogData.get({ plain: true });
         res.status(200).
-        render('full_blog', {
+            render('full_blog', {
                 blogPosts,
                 loggedIn: req.session.loggedIn,
             });
@@ -56,11 +106,11 @@ router.get('/post/:id', async (req, res) => {
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
+        res.redirect('/');
+        return;
     }
-  
+
     res.render('login');
-  });
+});
 
 module.exports = router;

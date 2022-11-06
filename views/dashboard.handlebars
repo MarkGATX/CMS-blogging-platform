@@ -1,0 +1,7 @@
+<h2>Your Previous Posts</h2>
+<button id="compose" class="btn-no-style">Create New Post</button>
+{{#each blogPosts as |post|}}
+{{> blog_titles}}
+{{/each}}
+
+<script src="./js/compose.js"></script>

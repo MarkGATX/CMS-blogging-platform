@@ -9,6 +9,7 @@ require('dotenv').config();
 const { strict } = require('assert');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
+const { Sequelize } = require('sequelize');
 // const helpers = require('./utils/helpers');
 
 const app = express();
