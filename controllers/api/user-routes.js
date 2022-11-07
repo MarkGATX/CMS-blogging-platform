@@ -11,14 +11,16 @@ router.post('/', async (req, res) => {
             email: req.body.email,
             password: req.body.password,
         });
-
+        console.log('user data =' + dbUserData)
+        
+        
         req.session.save(() => {
             req.session.loggedIn = true;
-            console.log(req.session.loggedIn)
+            req.session.userId = dbUserData.id
+            console.log('session info = ' + req.session.userId)
             res.status(200).json(dbUserData);
         });
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 });
@@ -49,7 +51,8 @@ router.post('/login', async (req, res) => {
 
         req.session.save(() => {
             req.session.loggedIn = true;
-            req.session.userId = dbUserData.id
+            req.session.userId = dbUserData.id;
+            req.session.userName= dbUserData.username
 
             res.status(200)
                 .json({ user: dbUserData, message: 'You are now logged in!' });

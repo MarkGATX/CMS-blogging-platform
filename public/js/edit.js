@@ -17,13 +17,32 @@ const editPost = async (event) => {
     if (response.ok) {
         document.querySelector('.card-footer').insertAdjacentText('afterbegin','Edits saved');
       } else {
-        alert('Failed to sign up.');
+        alert('Failed to save edit.');
+      }
+        
+
+}
+
+const deletePost = async (event) => {
+    event.preventDefault(); 
+    
+
+    const response = await fetch('../api/post/compose/', {
+        method: 'PUT',
+        body: JSON.stringify({id,title, post,}),
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+        document.querySelector('.card-footer').insertAdjacentText('afterbegin','Edits saved');
+      } else {
+        alert('Failed to save edit.');
       }
         
 
 }
 
 document.querySelector('#submitEdit').addEventListener('click', editPost);
+document.querySelector('#deletePost').addEventListener('click', deletePost);
   
 
 

@@ -1,11 +1,11 @@
 <a href='/post/{{id}}'>
-  <div class="card mb-5">
-    <h5 class="card-header">{{title}}</h5>
-    <div class="card-body">
+  <div class="card mb-5 col-12">
+    <h5 class="card-header col-6">{{title}}</h5>
+    <div class="card-body border border-2">
       <p class="card-text ms-5">{{post}}</p>
     </div>
-    <div class="card-footer text-muted text-end">
-      -- by {{user.first_name}} {{user.last_name}}
+    <div class="card-footer ms-auto col-6 text-muted text-end align-items-center">
+      -- by {{user.username}}
     </div>
   </div>
 </a>

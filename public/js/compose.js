@@ -7,12 +7,12 @@ function composePost (event) {
     const postCard = document.createElement('div');
     postCard.classList.add('card', 'mb-5');
     postCard.innerHTML = `
-    <div class="card-header commentCompose"><input type="text" id="newTitle" name="title" placeholder="Your new title here"></input></div>
+    <div class="card-header commentCompose col-6"><input type="text" id="newTitle" name="title" placeholder="Your new title here"></input></div>
     <div class="card-body">
     <textarea class="card-text ms-5 col-11"  rows="5" id="newPost" name="post"></textarea>
     </div>
-    <div class="card-footer text-muted text-end">
-    <button type="submit" id="savePost">Save your new post</button>
+    <div class="card-footer col-6 ms-auto text-muted text-end">
+    <button type="submit" class="rounded p-2" id="savePost">Save your new post</button>
     </div>
   </div>`
     postParent.insertAdjacentElement('afterend', postCard)

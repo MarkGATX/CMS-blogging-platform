@@ -1,13 +1,13 @@
 <div class="card mb-5" data-postId="{{postId}}">
-  <h5 class="card-header" ">{{blogPosts.title}}</h5>
-  <div class="card-body">
+  <h5 class="card-header col-6">{{blogPosts.title}}</h5>
+  <div class="card-body border border-2">
     <p class="card-text ms-5">{{blogPosts.post}}</p>
   </div>
-  <div class="card-footer text-muted d-flex justify-content-between">
+  <div class="card-footer text-muted ms-auto col-6 d-flex justify-content-between align-items-center">
     <div class="commentButton">
-  <button type="submit" id="submitComment" data-userId="{{userId}}">Add a comment</button>
+  <button type="submit" id="submitComment" class="rounded p-2" data-userId="{{userId}}">Add a comment</button>
 </div>
-    <span>-- by {{blogPosts.user.first_name}} {{blogPosts.user.last_name}}</span>
+    <span>-- by {{blogPosts.user.username}}</span>
   </div>
 </div>
 

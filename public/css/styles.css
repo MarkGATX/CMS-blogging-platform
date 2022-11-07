@@ -1,10 +1,131 @@
 /* root variables */
+:root {
+    --headers: #58a4b0;
+    --background: #e1bb80;
+    --light: #fdedd4;
+    --dark: #352208;
+    --hovers: #9b287b;
+    
+
+}
 
 /* global */
 
-/* class */
-.hidden {
-    display:none;
+body {
+    background-color:var(--background);
+    color:var(--dark);
+    font-family: 'Work Sans', sans-serif;
 }
 
+button {
+    border-color:var(--dark);
+    color:var(--dark);
+}
+
+header {
+    color:var(--dark);
+    
+}
+
+header.border-bottom {
+    border-color:var(--headers) !important;
+}
+
+
+header a {
+    text-decoration: none;
+    color:inherit;
+}
+header a:hover {
+    color:inherit;
+}
+
+main a {
+    text-decoration: none;
+    color: inherit;
+    
+}
+
+
+/* class */
+.card {
+    border: none;
+    background-color: transparent;
+}
+
+.card-body {
+    border-radius: 0 10px 0 10px;
+    background-color: var(--light);
+    border-color:var(--headers) !important;
+}
+
+.card-footer {
+    background-color: var(--headers);
+    color:var(--light) !important;
+    font-family: 'Nothing You Could Do', cursive;
+
+}
+
+.card-header {
+    background-Color: var(--headers);
+    font-family: 'Nothing You Could Do', cursive;
+    color:var(--light) !important;
+}
+
+.comment-body {
+    border-radius: 10px 10px 0 10px;
+}
+
+.fader {
+    /* scale:0; */
+}
+
+.fadeIn {
+    animation: append 1s cubic-bezier(0.47, 0, 0.745, 0.715);
+  
+}
+
+.hidden {
+    display: none;
+}
+
+.handwritten {
+    font-family: 'Nothing You Could Do', cursive;
+}
+
+.navbar {
+    border-radius: 0 0 0 10px;
+    background-color: var(--headers) !important;
+}
+
+
 /* id */
+#logout {
+    cursor: pointer;
+}
+
+/* selectors */
+a:hover {
+    color:var(--hovers) !important;
+}
+
+a:hover h5{
+    color:var(--hovers) !important;
+}
+
+/* animations */
+@keyframes append {
+    from {
+        /* transform: scale(0); */
+        opacity: 0;
+
+
+    }
+
+    to {
+        /* transform: scale(1); */
+        opacity: 1;
+
+
+    }
+}

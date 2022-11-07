@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
                 attributes: [
                     'first_name',
                     'last_name',
+                    'username',
                 ],
             },
         });
@@ -71,7 +72,8 @@ router.get('/post/:id', auth.withAuth, async (req, res) => {
                         model: Users,
                         attributes: [
                             'first_name',
-                            'last_name'
+                            'last_name',
+                            'username',
                         ]
                     },
                     {
@@ -81,7 +83,8 @@ router.get('/post/:id', auth.withAuth, async (req, res) => {
                                 model: Users,
                                 attributes: [
                                     'first_name',
-                                    'last_name'
+                                    'last_name',
+                                    'username',
                                 ]
                             }
                         ]
@@ -118,6 +121,7 @@ router.get('/compose/:id', auth.withAuth, async (req, res) => {
                 attributes: [
                     'first_name',
                     'last_name',
+                    'username',
                 ],
             }
         }

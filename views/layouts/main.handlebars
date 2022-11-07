@@ -8,14 +8,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 
 <body>
-    <header class="ms-5 mt-3 pb-3">
+    <header class="ps-5 mt-3 pb-3 border-bottom border-4">
         <a href="/"><h1>Scribl Notes</h1></a>
     </header>
-    <nav class="navbar sticky-top navbar-expand-lg bg-light mb-5">
+    <nav class="navbar sticky-top navbar-expand-lg bg-light ms-auto col-6 mb-5">
         <div class="container-fluid d-flex justify-content-end">
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -26,11 +29,11 @@
                 </li>
            
                 {{#if loggedIn}}
-                <li><button id="logout" class="btn-no-style">Logout</button>
+                <li class="nav-item"><a id="logout" class="nav-link">Logout</a>
                 </li>
                 {{else}}
-                <li>
-                    <a href="/login">Login</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
                 </li>
                 {{/if}}
             </ul>

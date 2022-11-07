@@ -4,17 +4,18 @@ const addComment = async (event) => {
     document.querySelector('#submitComment').classList.add('hidden');
     const commentParent = document.querySelector('.card');
     const commentCard = document.createElement('div');
-    commentCard.classList.add('card', 'mb-5');
+    commentCard.classList.add('card', 'mb-5', 'fader');
     commentCard.innerHTML = `
-    <h5 class="card-header commentCompose">New comment</h5>
-    <div class="card-body">
-    <textarea class="card-text ms-5 col-11"  rows="5" id="newComment" name="comment"></textarea>
+    <h5 class="card-header commentCompose col-6">New comment</h5>
+    <div class="card-body border border-2">
+    <textarea class="card-text ms-5 col-11"  rows="5" id="newComment" name="comment" placeholder="Type your comment here..."></textarea>
     </div>
-    <div class="card-footer text-muted text-end">
-    <button type="submit" id="postComment">Save your comment</button>
+    <div class="card-footer text-muted text-end col-6 ms-auto">
+    <button type="submit" class="p-2 rounded" id="postComment">Save your comment</button>
     </div>
   </div>`
-    commentParent.insertAdjacentElement('afterend', commentCard)
+    commentParent.insertAdjacentElement('afterend', commentCard);
+    commentCard.classList.add('fadeIn');
     document.querySelector('#postComment').addEventListener('click', postComment);
 }
 // post comment to database
