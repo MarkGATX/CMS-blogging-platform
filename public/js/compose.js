@@ -16,6 +16,7 @@ function composePost (event) {
     </div>
   </div>`
     postParent.insertAdjacentElement('afterend', postCard)
+    postCard.classList.add('fadeIn');
     document.querySelector('#savePost').addEventListener('click', savePost);
 }
 

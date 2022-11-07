@@ -76,9 +76,7 @@ main a {
     border-radius: 10px 10px 0 10px;
 }
 
-.fader {
-    /* scale:0; */
-}
+
 
 .fadeIn {
     animation: append 1s cubic-bezier(0.47, 0, 0.745, 0.715);

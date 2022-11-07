@@ -1,10 +1,10 @@
 <h2>Edit Post</h2>
 <div id="editForm" data-idnumber="{{blogPosts.id}}" class="form card mb-5">
-    <div class="card-header col-6"><input type="text" id="editTitle" name="title" value={{blogPosts.title}}></input></div>
+    <div class="card-header col-6 border-bottom-0"><input type="text" id="editTitle" name="title" value={{blogPosts.title}}></input></div>
     <div class="card-body border border-2">
       <textarea class="card-text ms-5 col-11"  rows="5" id="editPost" name="post">{{blogPosts.post}}</textarea>
     </div>
-    <div class="card-footer d-flex col-6 ms-auto text-muted text-end align-items-center">
+    <div class="card-footer border-top-0 d-flex col-6 ms-auto text-muted text-end align-items-center">
         <button type="submit" form="editform" class="rounded p-2 me-auto" id="deletePost">DELETE POST</button>
       <span class="me-2">-- by {{blogPosts.user.username}}</span>
       
