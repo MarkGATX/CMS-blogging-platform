@@ -19,23 +19,21 @@ const editPost = async (event) => {
       } else {
         alert('Failed to save edit.');
       }
-        
-
 }
+
 
 const deletePost = async (event) => {
     event.preventDefault(); 
-    
-
-    const response = await fetch('../api/post/compose/', {
-        method: 'PUT',
-        body: JSON.stringify({id,title, post,}),
+    const id = document.querySelector('#editForm').dataset.idnumber;
+    const response = await fetch('../api/post/delete/', {
+        method: 'DELETE',
+        body: JSON.stringify({id}),
         headers: { 'Content-Type': 'application/json' },
     });
-    if (response.ok) {
-        document.querySelector('.card-footer').insertAdjacentText('afterbegin','Edits saved');
+    if (response.status === 200) {
+        window.location.replace("/dashboard")
       } else {
-        alert('Failed to save edit.');
+        alert('Failed to delete post.');
       }
         
 

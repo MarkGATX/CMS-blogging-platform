@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
         const blogPosts = dbBlogData.map((blogs) =>
             blogs.get({ plain: true })
         );
-        console.log(blogPosts)
+        
 
         res.status(200).
             render('home', {
