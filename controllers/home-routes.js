@@ -104,6 +104,7 @@ router.get('/post/:id', auth.withAuth, async (req, res) => {
                 blogPosts,
                 loggedIn: req.session.loggedIn,
                 userId: req.session.userId,
+                
                 postId: req.params.id
             });
     } catch (err) {

@@ -13,8 +13,8 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         document.location.replace('/');
-      } else {
-        alert('Failed to log in.');
+      } else(err) => {
+        console.log('this is the error object =' + err);
       }
     }
   };
@@ -33,11 +33,13 @@ const loginFormHandler = async (event) => {
         body: JSON.stringify({ first_name, last_name, username, email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
-  
+      console.log(response)
       if (response.ok) {
         document.location.replace('/');
       } else {
-        alert('Failed to sign up.');
+          console.log('this is the error object =' + response(err));
+      // } else (err){
+      //   alert('Failed to sign up.');
         
       }
     }
