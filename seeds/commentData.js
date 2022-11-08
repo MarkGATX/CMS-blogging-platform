@@ -46,6 +46,22 @@ const commentdata = [
         blog_id: 4,
 
     },
+    {
+        id:7,
+        comment: `I ask myself the same question every day!`,
+        comment_author_id: 1,
+        date_created: 'July 13, 2022 18:00:00',
+        blog_id: 5,
+
+    },
+    {
+        id:8,
+        comment: `I'm still not sure how to use a flex-box`,
+        comment_author_id: 2,
+        date_created: 'July 13, 2022 18:20:00',
+        blog_id: 5,
+
+    },
 ];
 
 const seedComments = () => Comment.bulkCreate(commentdata);
