@@ -1,9 +1,15 @@
   <div class="card mb-5 col-10">
 
-    <div class="card-body border border-2 comment-body">
+    <div class="card-body border border-2 comment-body" data-commId="{{id}}">
       <p class="card-text">{{comment}}</p>
     </div>
-    <div class="card-footer col-6 ms-auto text-muted text-end border-top-0 align-items-center">
+    
+      {{#if (delLogin sessionUserName user.username)}}
+      <div class="card-footer d-flex col-7 ms-auto text-muted text-end border-top-0 align-items-center justify-content-between">
+      <button type="submit"  class="rounded p-2" id="deleteComment" data-commIdDel="{{id}}">Delete Comment</button><span> -- {{user.username}}</span>
+      {{else}}
+      <div class="card-footer col-7 ms-auto text-muted text-end border-top-0 align-items-center">
       -- {{user.username}}
+      {{/if}}
     </div>
   </div>

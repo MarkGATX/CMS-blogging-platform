@@ -33,10 +33,19 @@ Users.init(
       type: DataTypes.STRING,
       allowNull: false,
       unique:true,
+      validate: {
+        isEmail: true,
+        msg: "You must provide a valid e-mail address.",
+      },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: {args: [8],
+              msg: "Your password must be at least 8 characters long"
+      },
+    }
     },
   },
   {

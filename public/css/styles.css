@@ -40,6 +40,10 @@ header a:hover {
     color:inherit;
 }
 
+input#editTitle, input#newTitle {
+    width:100%;
+}
+
 main a {
     text-decoration: none;
     color: inherit;

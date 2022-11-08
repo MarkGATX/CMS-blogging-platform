@@ -19,6 +19,21 @@ router.post('/new', async (req, res) => {
     }
 });
 
+router.delete('/del', auth.withAuth, async (req, res) => {
+    console.log(req.body)
+    try {
+        await Comment.destroy({
+            where: {
+                id:req.body.comment_id
+            }
+        },
+        );
+        res.status(200).json(req.body);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 
 module.exports = router;

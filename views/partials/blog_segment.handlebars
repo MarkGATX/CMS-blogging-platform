@@ -5,7 +5,8 @@
       <p class="card-text ms-5">{{post}}</p>
     </div>
     <div class="card-footer ms-auto col-6 text-muted text-end  border-top-0 align-items-center">
-      -- by {{user.username}}
+      -- by {{user.username}} <br>
+      {{format_date date_created}}
     </div>
   </div>
 </a>

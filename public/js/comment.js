@@ -40,11 +40,31 @@ const postComment = async (event) => {
     } else {
         alert('Failed to post comment.');
     }
-
-
 }
+
+const deleteComment = async (event) => {
+    event.preventDefault();
+    
+    const comment_id = event.target.dataset.commiddel;
+    const response = await fetch('../api/comment/del', {
+        method: 'DELETE',
+        body: JSON.stringify({ comment_id }),
+        headers: { 'Content-Type': 'application/json' },
+    });
+    console.log(response)
+    if (response.status === 200) {
+        console.log('okay')
+        location.reload();
+    } else {
+        alert('Failed to delete comment.');
+    }
+}
+
 
 document.querySelector('#submitComment').addEventListener('click', addComment);
 
+if(document.querySelector('#deleteComment')){
+document.querySelector('#deleteComment').addEventListener('click', deleteComment);
+} else {}
 
 

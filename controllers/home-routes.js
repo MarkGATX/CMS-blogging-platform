@@ -96,15 +96,21 @@ router.get('/post/:id', auth.withAuth, async (req, res) => {
                 //     nested:true
                 // } 
             });
-        console.log(dbBlogData)
+        
         console.log('sessionid = ' + req.session.userId)
+        console.log('sessionusername = ' + req.session.userName)
+        const sessUserName = req.session.userName;
+        console.log('seriously session name = ' + sessUserName)
+        
         const blogPosts = dbBlogData.get({ plain: true });
+        
         res.status(200).
             render('full_blog', {
                 blogPosts,
                 loggedIn: req.session.loggedIn,
                 userId: req.session.userId,
-                
+                sessionUserName: sessUserName,
+                // sessionUserName: req.session.UserName,
                 postId: req.params.id
             });
     } catch (err) {
