@@ -78,7 +78,7 @@ ___
 
 ## Credits
 
-Huge thanks for Richard for helping me squash bugs and figure out how to pass variables down to partials in Handlebars.
+Huge thanks for [Richard](https://github.com/richardjhong) for helping me squash bugs and figure out how to pass variables down to partials in Handlebars.
 
 Thanks to Leah, Ian, Diem, Negin, and all the other students who keep teaching and talking us through all the twists and turns of coding.
 
