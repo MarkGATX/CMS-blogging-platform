@@ -34,8 +34,9 @@ Users.init(
       allowNull: false,
       unique:true,
       validate: {
-        isEmail: true,
+        isEmail: {
         msg: "You must provide a valid e-mail address.",
+        }
       },
     },
     password: {

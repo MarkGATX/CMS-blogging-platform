@@ -16,7 +16,7 @@ In the end I think I created a good start on a solid CMS system. There are some 
 
 If you want to take the app for a test drive, here's the link to a live version currently hosted on Heroku.
 
-
+[Scribl-Notes live](https://scribl-notes.herokuapp.com/)
 ___
 
 
@@ -82,7 +82,7 @@ Huge thanks for Richard for helping me squash bugs and figure out how to pass va
 
 Thanks to Leah, Ian, Diem, Negin, and all the other students who keep teaching and talking us through all the twists and turns of coding.
 
-
+Thanks to -Central Grader RM for finding a bug that slipped through that prevented new users from signing up. It's fixed now!
 
 ___
 
